@@ -2,6 +2,7 @@ import React from "react";
 
 import Button from "../components/Button";
 import ClearButton from "../components/ClearButton";
+import Input from "../components/Input";
 
 import "../Styles/startName_style.css";
 
@@ -15,6 +16,7 @@ class StartApp extends React.Component {
     return (
       <div className="startName">
         <div className="calc-wrapper">
+          <Input />
           <div className="row">
             <Button>7</Button>
             <Button>8</Button>
