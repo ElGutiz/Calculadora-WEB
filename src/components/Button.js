@@ -14,8 +14,7 @@ class Button extends Component {
       <div
         role="presentation"
         className={`button-wrapper ${isOperator(this.props.children) ? null : "operator"}`}
-        onClick={() => this.props.handleClick(this.props.children)}
-        onClick={this.props.addVal}
+        onClick={this.props.addToInput}
       >
         {this.props.children}
       </div>
