@@ -23,6 +23,7 @@ class StartApp extends React.Component {
     const substractSign = "-";
     const multiplySign = "*";
     const decimalSign = ".";
+    const moduleSign = "%";
 
     const { input, Donee } = this.state;
 
@@ -92,7 +93,8 @@ class StartApp extends React.Component {
             </Button>
           </div>
           <div className="row">
-            <Button addToInput={() => this.setState({ input: math.evaluate(`-1 *${parseInt(input)}`) })}>+/-</Button>
+            <Button addToInput={() => this.setState({ input: math.evaluate(`-1 *${parseInt(input, 10)}`) })}>+/-</Button>
+            <Button addToInput={() => this.setState({ input: input + moduleSign })}>%</Button>
             <ClearButton handleClear={() => this.setState({ input: "" })}>Erase</ClearButton>
           </div>
         </div>
