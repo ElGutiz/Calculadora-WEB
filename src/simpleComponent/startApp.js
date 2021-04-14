@@ -1,6 +1,7 @@
 import React from "react";
 
 import Button from "../components/Button";
+import ClearButton from "../components/ClearButton";
 
 import "../Styles/startName_style.css";
 
@@ -37,6 +38,9 @@ class StartApp extends React.Component {
             <Button>0</Button>
             <Button>=</Button>
             <Button>-</Button>
+          </div>
+          <div className="row">
+            <ClearButton>Erase</ClearButton>
           </div>
         </div>
       </div>
