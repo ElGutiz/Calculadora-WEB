@@ -13,11 +13,8 @@ class StartApp extends React.Component {
 
     this.state = {
       input: "",
+      Donee: false,
     };
-  }
-
-  handleEqual() {
-    this.setState({ input: math.evaluate(this.state.input) });
   }
 
   render() {
@@ -26,40 +23,77 @@ class StartApp extends React.Component {
     const substractSign = "-";
     const multiplySign = "*";
     const decimalSign = ".";
-    const equalSign = "=";
-    const { input } = this.state;
+
+    const { input, Donee } = this.state;
+
+    function LenghtLimitY() {
+      return <Input input={input.substring(0, 9)} />;
+    }
+
+    function LenghtLimitN() {
+      return <Input input={input} />;
+    }
+
+    function FinalMessage() {
+      if (Donee === true) {
+        return <LenghtLimitY />;
+      }
+      return <LenghtLimitN />;
+    }
+
     return (
       <div className="startName">
         <div className="calc-wrapper">
-          <Input input={input} />
+          <FinalMessage />
           <div className="row">
-            <Button addToInput={() => this.setState({ input: input + 7 })}>7</Button>
-            <Button addToInput={() => this.setState({ input: input + 8 })}>8</Button>
-            <Button addToInput={() => this.setState({ input: input + 9 })}>9</Button>
-            <Button addToInput={() => this.setState({ input: input + divisionSign })}>
+            <Button addToInput={() => this.setState({ input: input + 7, Donee: false })}>
+              7
+            </Button>
+            <Button addToInput={() => this.setState({ input: input + 8, Donee: false })}>8</Button>
+            <Button addToInput={() => this.setState({ input: input + 9, Donee: false })}>9</Button>
+            <Button addToInput={() => this.setState({ input: input + divisionSign, Donee: false })}>
               /
             </Button>
           </div>
           <div className="row">
-            <Button addToInput={() => this.setState({ input: input + 4 })}>4</Button>
-            <Button addToInput={() => this.setState({ input: input + 5 })}>5</Button>
-            <Button addToInput={() => this.setState({ input: input + 6 })}>6</Button>
-            <Button addToInput={() => this.setState({ input: input + multiplySign })}>x</Button>
+            <Button addToInput={() => this.setState({ input: input + 4, Donee: false })}>4</Button>
+            <Button addToInput={() => this.setState({ input: input + 5, Donee: false })}>5</Button>
+            <Button addToInput={() => this.setState({ input: input + 6, Donee: false })}>6</Button>
+            <Button addToInput={() => this.setState({ input: input + multiplySign, Donee: false })}>
+              x
+            </Button>
           </div>
           <div className="row">
-            <Button addToInput={() => this.setState({ input: input + 1 })}>1</Button>
-            <Button addToInput={() => this.setState({ input: input + 2 })}>2</Button>
-            <Button addToInput={() => this.setState({ input: input + 3 })}>3</Button>
-            <Button addToInput={() => this.setState({ input: input + addSign })}>+</Button>
+            <Button addToInput={() => this.setState({ input: input + 1, Donee: false })}>1</Button>
+            <Button addToInput={() => this.setState({ input: input + 2, Donee: false })}>2</Button>
+            <Button addToInput={() => this.setState({ input: input + 3, Donee: false })}>3</Button>
+            <Button addToInput={() => this.setState({ input: input + addSign, Donee: false })}>
+              +
+            </Button>
           </div>
           <div className="row">
-            <Button addToInput={() => this.setState({ input: input + decimalSign })}>.</Button>
-            <Button addToInput={() => this.setState({ input: input + 0 })}>0</Button>
-            <Button addToInput={() => this.setState({ input: input + equalSign })}>=</Button>
-            <Button addToInput={() => this.setState({ input: input + substractSign })}>-</Button>
+            <Button addToInput={() => this.setState({ input: input + decimalSign, Donee: false })}>
+              .
+            </Button>
+            <Button addToInput={() => this.setState({ input: input + 0, Donee: false })}>0</Button>
+            <Button addToInput={() => this.setState({
+              input: math.evaluate(input).toString(),
+              Donee: true,
+            })}
+            >
+              =
+            </Button>
+            <Button addToInput={() => this.setState({
+              input: input + substractSign,
+              Donee: false,
+            })}
+            >
+              -
+            </Button>
           </div>
           <div className="row">
-            <ClearButton>Erase</ClearButton>
+            <Button addToInput={() => this.setState({ input: math.evaluate(`-1 *${parseInt(input)}`) })}>+/-</Button>
+            <ClearButton handleClear={() => this.setState({ input: "" })}>Erase</ClearButton>
           </div>
         </div>
       </div>
