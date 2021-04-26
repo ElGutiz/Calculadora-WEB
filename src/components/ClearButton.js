@@ -8,7 +8,7 @@ class ClearButton extends React.Component {
 
   render() {
     return (
-      <div role="presentation" className="clear-button" onClick={this.props.handleClear}>
+      <div data-testid="existe2" role="presentation" className="clear-button" onClick={this.props.handleClear}>
         {this.props.children}
       </div>
     );

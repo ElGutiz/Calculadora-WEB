@@ -14,7 +14,7 @@ class Button extends Component {
         role="presentation"
         className={`button-wrapper ${isOperator(this.props.children) ? null : "operator"}`}
         onClick={this.props.addToInput}
-        data-testid="agregar"
+        data-testid="existe1"
       >
         {this.props.children}
       </div>
