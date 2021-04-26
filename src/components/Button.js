@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../Styles/Button_style.css";
 
 const isOperator = (val) => !isNaN(val) || val === "." || val === "=";
 
@@ -15,6 +14,7 @@ class Button extends Component {
         role="presentation"
         className={`button-wrapper ${isOperator(this.props.children) ? null : "operator"}`}
         onClick={this.props.addToInput}
+        data-testid="agregar"
       >
         {this.props.children}
       </div>

@@ -5,8 +5,6 @@ import Button from "../components/Button";
 import ClearButton from "../components/ClearButton";
 import Input from "../components/Input";
 
-import "../Styles/startName_style.css";
-
 class StartApp extends React.Component {
   constructor(props) {
     super(props);
@@ -50,7 +48,7 @@ class StartApp extends React.Component {
             <Button addToInput={() => this.setState({ input: input + 7, Donee: false })}>
               7
             </Button>
-            <Button addToInput={() => this.setState({ input: input + 8, Donee: false })}>8</Button>
+            <Button data-testid="agregar" addToInput={() => this.setState({ input: input + 8, Donee: false })}>8</Button>
             <Button addToInput={() => this.setState({ input: input + 9, Donee: false })}>9</Button>
             <Button addToInput={() => this.setState({ input: input + divisionSign, Donee: false })}>
               /

@@ -1,5 +1,4 @@
 import React from "react";
-import "../Styles/clearbutton_style.css";
 
 class ClearButton extends React.Component {
   constructor(props) {
